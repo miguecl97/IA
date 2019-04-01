@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- NIVEL 3 -->
+<category>
+<pattern>Adivina la fruta que estoy pensando</pattern>
+<template>
+	Bienvenido al nivel 3!!,
+	Piense en una fruta y escriba "estoy listo" cuando este preparado.
+</template>
+</category>
+
+
+<category>
+<pattern>ES+ LIST+</pattern>
+<template>
+	<think>	
+	<set name="frutas"><readset>frutas</readset></set>
+	<set name="color">amarillo</set>
+	<set name="itsnot">0</set>
+	<set name="itis">0</set>
+	</think>
+	Es de color <get name="color"/>
+</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>Es de color amarillo</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="color"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+			<set name="itis"><get name="itis"/> amarillo</set>
+	</think>
+	<srai>MEDIANO</srai>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de color amarillo</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="color"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itsnot"><get name="itsnot"/> amarillo</set>
+	</think>
+	<srai>PEQUENIO</srai>
+</template>
+</category>
+
+<category>
+<pattern>MEDIANO</pattern>
+<template>
+	<think>
+	<set name="tamanio">mediano</set>
+	</think>
+	Es de tamanio <get name="tamanio"/>
+</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>Es de tamanio mediano</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="tamanio"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> mediano</set>
+	</think>
+	<srai>SEMIACIDO</srai>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de tamanio mediano</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="tamanio"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+				<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itsnot"><get name="itsnot"/> mediano</set>
+	</think>
+	<srai>VITAMINA B</srai>
+</template>
+</category>
+
+<category>
+<pattern>SEMIACIDO</pattern>
+<template>
+	<think>
+	<set name="sabor">semiacido</set>
+	</think>
+		Es de sabor <get name="sabor"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Es de sabor semiacido</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="sabor"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> semiacido</set>
+	</think>
+	<srai>VITAMINA C</srai>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de sabor semiacido</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="sabor"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itsnot"><get name="itsnot"/> semiacido</set>
+	</think>
+	<srai>VERDE</srai>
+</template>
+</category>
+
+<category>
+<pattern>VITAMINA C</pattern>
+<template>
+	<think>	
+	<set name="vitamina">C</set>
+</think>
+	Tiene vitamina <get name="vitamina"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Tiene vitamina C</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="vitamina"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set var="cantidad"><srai>COUNT <get name="frutas"/></srai></set>
+	<set name="itis"><get name="itis"/> C</set>
+	</think>
+	<condition var="cantidad">
+
+		<li value="1">
+			Tu fruta es <get name="frutas"/>
+		</li>
+		<li>
+		<srai>ACIDO</srai>
+		</li>
+	 </condition>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Tiene vitamina C</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="vitamina"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itsnot"><get name="itsnot"/> C</set>
+	<set var="cantidad"><srai>COUNT <get name="frutas"/></srai></set>
+	</think>
+	<condition var="cantidad">
+
+		<li value="1">
+			Tu fruta es <get name="frutas"/>
+		</li>
+		<li value="0">
+			Me estas enganiando, no hay ninguna fruta que sea así.
+		</li>
+		<li>
+		<srai>VITAMINA B</srai>
+		</li>
+	 </condition>
+</template>
+</category>
+
+<category>
+<pattern>ACIDO</pattern>
+<template>
+	<think>
+	<set name="sabor">acido</set>
+	</think>
+		Es de sabor <get name="sabor"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Es de sabor acido</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="sabor"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> acido</set>
+	</think>
+	Tu fruta es <get name="frutas"/>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de sabor acido</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="sabor"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itsnot"><get name="itsnot"/> acido</set>
+	</think>
+	Tu fruta es <get name="frutas"/>
+</template>
+</category>
+
+<category>
+<pattern>VERDE</pattern>
+<template>
+	<think>	
+	<set name="color">verde</set>
+</think>
+	Es de color <get name="color"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Es de color verde</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="color"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> verde</set>
+	</think>
+	Tu fruta es <get name="frutas"/>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de color verde</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="color"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+		<set var="cantidad"><srai>COUNT <get name="frutas"/></srai></set>
+		<set name="itsnot"><get name="itsnot"/> verde</set>
+	</think>
+	<condition var="cantidad">
+
+		<li value="1">
+			Tu fruta es <get name="frutas"/>
+		</li>
+		<li value="0">
+			Me estas enganiando, no hay ninguna fruta que sea así.
+		</li>
+		<li>
+		<srai>VITAMINA C</srai>
+		</li>
+	 </condition>
+</template>
+</category>
+
+<category>
+<pattern>VITAMINA B</pattern>
+<template>
+	<think>	
+	<set name="vitamina">B</set>
+</think>
+	Tiene vitamina <get name="vitamina"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Tiene vitamina B</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="vitamina"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+		<set name="itis"><get name="itis"/> B</set>
+		<set var="cantidad"><srai>COUNT <get name="frutas"/></srai></set>
+	</think>
+	<condition var="cantidad">
+
+		<li value="1">
+			Tu fruta es <get name="frutas"/>
+		</li>
+		<li value="0">
+			Me estas enganiando, no hay ninguna fruta que sea así.
+		</li>
+		<li>
+		<srai>ACIDO</srai>
+		</li>
+	 </condition>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Tiene vitamina B</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="vitamina"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+		<set name="itsnot"><get name="itsnot"/> B</set>
+	</think>
+			Tu fruta es <get name="frutas"/>
+</template>
+</category>
+
+<category>
+<pattern>PEQUENIO</pattern>
+<template>
+	<think>
+	<set name="tamanio">pequenio</set>
+	</think>
+	Es de tamanio <get name="tamanio"/>
+</template>
+</category>
+
+<category>
+<pattern>SI</pattern>
+<that>Es de tamanio pequenio</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="tamanio"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> pequenio</set>
+	</think>
+	<srai>VITAMINA A</srai>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de tamanio pequenio</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="tamanio"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+				<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+		<set name="itsnot"><get name="itsnot"/> pequenio</set>
+	</think>
+	<srai>NEUTRO</srai>
+</template>
+</category>
+
+
+<category>
+<pattern>VITAMINA A</pattern>
+<template>
+	<think>
+	<set name="vitamina"> A</set>
+	</think>
+		Tiene vitamina <get name="vitamina"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Tiene vitamina A</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="vitamina"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> A</set>
+	</think>
+	<srai>VITAMINA C</srai>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Tiene vitamina A</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="vitamina"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+		<set name="itsnot"><get name="itsnot"/> A</set>
+	</think>
+	<srai>VERDE</srai>
+</template>
+</category>
+
+
+<category>
+<pattern>NEUTRO</pattern>
+<template>
+	<think>
+	<set name="sabor">neutro</set>
+	</think>
+		Es de sabor <get name="sabor"/>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>Es de sabor neutro</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="sabor"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+				<li></li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="itis"><get name="itis"/> neutro</set>
+	</think>
+	<srai>VERDE</srai>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>Es de sabor neutro</that>
+<template>
+	<think>
+	<set var="item"><srai> ITERATE <get name="frutas"/></srai></set>
+	<condition var="item">
+		<li value="$"></li>
+		<li>
+			<set var="aux"><map name="frutas"><get var="item"/></map></set>
+			<set var="in"><srai>FINDITEM <get name="sabor"/>  IN <get var="aux"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+			<set var="pos"><srai>FINDITEM <get var="item"/> IN <get name="frutas"/></srai></set>
+					<set name="frutas"><srai>REMOVEITEM <get var="pos"/> IN <get name="frutas"/></srai></set>	
+				</li>
+			</condition>
+			<set var="item"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+		<set name="itsnot"><get name="itsnot"/> neutro</set>
+	</think>
+	<srai>VERDE</srai>
+</template>
+</category>
+
+
+<category>
+<pattern>SI</pattern>
+<that>TU FRUTA ES *</that>
+<template>
+	Bien, Quieres reiniciar el juego
+	<think>
+	<set name="frutas"><readset>frutas</readset></set>
+	</think>
+</template>
+</category>
+
+<category>
+<pattern>NO</pattern>
+<that>TU FRUTA ES *</that>
+<template>
+	En que fruta habias pensado entonces
+</template>
+</category>
+
+<category>
+<pattern>EN [EL LA] *</pattern>
+<that>En que fruta habias pensado entonces</that>
+<template>
+	<think>
+	<set var="lista"></set>
+	<set name="itis"><srai>REMAIN <get name="itis"/></srai></set>
+	<set name="itsnot"><srai>REMAIN <get name="itsnot"/></srai></set>
+	<set var="fruit"><map name="frutas"><star/></map></set>
+	<set var="itemy"><srai> ITERATE <get name="itis"/></srai></set>
+	<condition var="itemy">
+		<li value="$"></li>
+		<li>
+			<set var="in"><srai>FINDITEM <get var="itemy"/>  IN <get var="fruit"/></srai></set>
+			<condition var="in">
+				<li value="0">
+					<set var="lista"><get var="lista"/>Me has dicho que <star/> era <get var="itemy"/> , y eso es MENTIRA. </set>
+				</li>
+				<li>
+				</li>
+			</condition>
+			<set var="itemy"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set var="itemn"><srai> ITERATE <get name="itsnot"/></srai></set>
+	<condition var="itemn">
+		<li value="$"></li>
+		<li>
+			<set var="in"><srai>FINDITEM <get var="itemn"/>  IN <get var="fruit"/></srai></set>
+			<condition var="in">
+				<li value="0"></li>
+				<li>
+						<set var="lista"><get var="lista"/>Me has dicho que <star/> NO era <get var="itemn"/> , y eso es MENTIRA. </set>
+				</li>
+			</condition>
+			<set var="itemn"><srai>NEXT</srai></set>
+			<loop/>
+			</li>
+	</condition>
+	<set name="lista"><srai>REMAIN <get name="lista"/></srai></set>
+	</think>
+			Me estas engañando....
+	
+			<get var="lista"/>
+			Todo el mundo sabe que <star/> es <get var="fruit"/>. 
+</template>
+</category>
+
+<category>
+<pattern>Si</pattern>
+<that>Bien, Quieres reiniciar el juego</that>
+<template>
+	Reiniciando juego...
+	<srai>ES+ LIST+</srai>
+</template>
+</category>
+
+<category>
+<pattern>No</pattern>
+<that>Bien, Quieres reiniciar el juego</that>
+<template>
+	Vale, podemos seguir charlando.
+</template>
+</category>
+
+<!-- FIN NIVEL 3 -->
+
+</aiml>

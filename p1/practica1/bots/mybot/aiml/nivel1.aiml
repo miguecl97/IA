@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!--        NIVEL 1              -->
+<category>
+<pattern>PIENSA (EN) UNA FRUT+</pattern>
+<template>
+<think>	
+	<set var="list_fruit"><readset>frutas</readset></set>
+	<set var="lista"> <get var="list_fruit"/> </set>
+	<set var="cantidad"><srai>COUNT <get var="lista"/></srai></set>
+	<set var="pos"><srai>RANDOM <get var="cantidad"/></srai></set>
+	<set name="elegida">
+<srai>
+	SELECTITEM <get var="pos"/> IN <get var="lista"/>
+</srai>
+</set>
+</think>
+	Bienvenido al nivel 1!!,
+	Ya la he pensado, puedes preguntarme.
+</template>
+</category>
+
+<category>
+<pattern>ES (DE COLOR) <set>colores</set></pattern>
+<template>
+	<think>
+	<set var="lista_colores"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="lista_colores"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>ES (DE TAMAÑO) <set>tamanio</set></pattern>
+<template>
+	<think>
+	<set var="tamanio"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="tamanio"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>ES (DE SABOR) <set>sabores</set></pattern>
+<template>
+	<think>
+	<set var="sabor"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="sabor"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>TIENE VITAMINA <set>vitaminas</set></pattern>
+<template>
+	<think>
+	<set var="vitamina"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="vitamina"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+
+
+<category>
+<pattern>(LA FRUTA EN LA QUE ESTABAS PENSANDO) ES [EL LA] <set>frutas</set></pattern>
+<template>
+	<think>
+	<set var="acierto"><srai> FINDITEM <star/> IN <get name="elegida"/></srai></set>
+	</think>
+	<condition var="acierto">
+	<li value="0">
+		No, has perdido!! Todavia puedes seguir intentandolo.
+		Para reiniciar el juego dime "Piensa en otra fruta".
+	</li>
+	<li>
+		Si, has ganado!!.
+		
+			<srai>PIENSA EN OTRA FRUT+</srai>
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * es (de color) <set>colores</set></pattern>
+<template>
+	<think>
+	<set var="color"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="color"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * es (de tamanio) <set>tamanio</set></pattern>
+<template>
+	<think>
+	<set var="tamanio"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="tamanio"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * es (de sabor) <set>sabores</set></pattern>
+<template>
+	<think>
+	<set var="sabor"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="sabor"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * tiene vitamina <set>vitaminas</set></pattern>
+<template>
+	<think>
+	<set var="vitamina"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="vitamina"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>PIENSA EN OTRA FRUT+</pattern>
+<template>Quieres reiniciar el juego</template>
+</category>
+
+
+<category>
+<pattern>Si</pattern>
+<that>Quieres reiniciar el juego</that>
+<template>
+	Reiniciando juego... Pensando otra fruta.
+	<srai>PIENSA EN UNA FRUT+</srai>
+</template>
+</category>
+
+<category>
+<pattern>No</pattern>
+<that>Quieres reiniciar el juego</that>
+<template>
+	Vale, podemos seguir charlando.
+</template>
+</category>
+
+<!--     FIN   NIVEL 1              -->
+</aiml>

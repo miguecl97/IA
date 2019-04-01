@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+
+<!--         NIVEL 0            -->
+<!-- Primera regla -->
+<category>
+<pattern>Nivel 0</pattern>
+<template>
+	Bienvenido al <set name="topic">nivel 0</set>!!
+</template>
+</category>
+
+<topic name="nivel 0">
+<!--COMO CONSIGO SUPERAR LA PARTE PRACTICA-->
+<category>
+<pattern>COMO CONSIGO SUPERAR LA PARTE PRACTICA</pattern>
+<template>La calificación correspondiente a la parte práctica debe de ser mayor o igual a 3 (sobre 10)</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [SUPER+ APR+] ^ PRACTIC+ ^</pattern>
+<template><srai>COMO CONSIGO SUPERAR LA PARTE PRACTICA</srai></template>
+</category>
+
+<!-- COMO SE EVALUA EN LA CONVOCATORIA ORDINARIA -->
+<category>
+<pattern>COMO SE EVALUA EN LA CONVOCATORIA ORDINARIA</pattern>
+<template>Para la parte de teoría durante el curso se realizarán dos pruebas. La nota de teoría será la media sobre las dos pruebas</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ EVAL+ ^ CONVOCATORIA ORDINARIA ^</pattern>
+<template><srai>COMO SE EVALUA EN LA CONVOCATORIA ORDINARIA</srai></template>
+</category>
+
+<!-- HAY EXAMEN DE PRACTICAS EN LA CONVOCATORIA EXTRAORDINARIA -->
+<category>
+<pattern>HAY EXAMEN DE PRACTICAS EN LA CONVOCATORIA EXTRAORDINARIA</pattern>
+<template>En la convocatoria extraordinaria habrá un examen escrito único (evaluado de 0 a 10) que incluirá preguntas tanto de tipo teórico como práctico</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [EXAMEN PRUEBA] PRACTIC+ ^ CONVOCATORIA EXTRAORDINARIA ^</pattern>
+<template><srai>HAY EXAMEN DE PRACTICAS EN LA CONVOCATORIA EXTRAORDINARIA</srai></template>
+</category>
+
+<!-- QUE PASA SI NO PUEDO ASISTIR A CLASE REGULARMENTE -->
+<category>
+<pattern>QUE PASA SI NO PUEDO ASISTIR A CLASE REGULARMENTE</pattern>
+<template>Lo mejor es que pidas la evaluación única final, con la que no te evaluan de forma continua. </template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ ASIST+ ^ CLASE ^</pattern>
+<template><srai>QUE PASA SI NO PUEDO ASISTIR A CLASE REGULARMENTE</srai></template>
+</category>
+
+<!-- HAY NOTA MINIMA PARA APROBAR -->
+<category>
+<pattern>HAY NOTA MINIMA PARA APROBAR </pattern>
+<template>Para aprobar la asignatura es necesario tener una calificación numérica superior o igual a 5 (sobre 10).</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ MINIM+ ^ APROBAR ^</pattern>
+<template><srai>HAY NOTA MINIMA PARA APROBAR</srai></template>
+</category>
+
+<!--LAS PRACTICAS SON OBLIGATORIAS-->
+<category>
+<pattern>LAS PRACTICAS SON OBLIGATORIAS</pattern>
+<template>Sí, lo son, de hecho hay que sacar una nota mínima en prácticas para poder aprobar.</template>
+</category>
+
+<!--LAS PRACTICAS SON OBLIGATORIAS-->
+<category>
+<pattern>^ PRACTIC+ ^ OBLIGATORI+ ^</pattern>
+<template><srai>LAS PRACTICAS SON OBLIGATORIAS</srai></template>
+</category>
+
+<!--CUANTO VALE CADA PRACTICA CON RESPECTO A LA NOTA FINAL-->
+<category>
+<pattern>CUANTO VALE CADA PRACTICA CON RESPECTO A LA NOTA FINAL</pattern>
+<template>Cada práctica vale un 25%. </template>
+</category>
+
+<!--CUANTO VALE CADA PRACTICA CON RESPECTO A LA NOTA FINAL-->
+<category>
+<pattern>^ CADA PRACTICA ^ NOTA FINAL^</pattern>
+<template><srai>CUANTO VALE CADA PRACTICA CON RESPECTO A LA NOTA FINAL</srai></template>
+</category>
+
+<!--CUANTO VALE LA PARTICIPACION CON RESPECTO A LA NOTA FINAL-->
+<category>
+<pattern>CUANTO VALE LA PARTICIPACION CON RESPECTO A LA NOTA FINAL</pattern>
+<template>La participación vale un 10% de la nota final.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ PARTICIP+ ^ NOTA FINAL^</pattern>
+<template><srai>CUANTO VALE LA PARTICIPACION CON RESPECTO A LA NOTA FINAL</srai></template>
+</category>
+
+<!--COMO SE CONSIGUEN PUNTOS POR PARTICIPACION-->
+<category>
+<pattern>COMO SE CONSIGUEN PUNTOS POR PARTICIPACION</pattern>
+<template>Participando en actividades de clase, saliendo a la pizarra o respondiendo a las preguntas del profesor.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ PUNTOS ^ PARTICIP+ ^</pattern>
+<template><srai>COMO SE CONSIGUEN PUNTOS POR PARTICIPACION</srai></template>
+</category>
+
+<!--LOS TRABAJOS SON INDIVIDUALES-->
+<category>
+<pattern>LOS TRABAJOS SON INDIVIDUALES</pattern>
+<template>Sí, sino pueden ser considerados como copia.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ TRABAJOS ^ INDIVID^</pattern>
+<template><srai>LOS TRABAJOS SON INDIVIDUALES</srai></template>
+</category>
+
+<!--SE PUEDEN HACER LOS TRABAJOS EN GRUPO-->
+<category>
+<pattern>SE PUEDEN HACER LOS TRABAJOS EN GRUPO</pattern>
+<template>No, a menos que se especifique lo contrario. </template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ TRABAJOS ^ GRUP+ ^</pattern>
+<template><srai>SE PUEDEN HACER LOS TRABAJOS EN GRUPO</srai></template>
+</category>
+
+<!--HAY QUE ENTREGAR LOS EJERCICIOS DE LAS RELACIONES DE PROBLEMA-->
+<category>
+<pattern>HAY QUE ENTREGAR LOS EJERCICIOS DE LAS RELACIONES DE PROBLEMAS</pattern>
+<template>En principio no, pero puede ser que el profesor pida entregarlos.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ ENTREGAR ^ [EJERCICI+ PROBLEM+] ^ RELACIONES ^ </pattern>
+<template><srai>HAY QUE ENTREGAR LOS EJERCICIOS DE LAS RELACIONES DE PROBLEMAS</srai></template>
+</category>
+
+<!--CUANTO VALE EL PRIMER EXAMEN DE TEORIA-->
+<category>
+<pattern>CUANTO VALE EL PRIMER EXAMEN DE TEORIA</pattern>
+<template>El primer examen de teoria vale 25% de la nota final.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ VALE ^ PRIME+ [EXAMEN PRUEBA] ^ TEORIA ^ </pattern>
+<template><srai>CUANTO VALE EL PRIMER EXAMEN DE TEORIA</srai></template>
+</category>
+
+<!--PUEDO RECUPERAR UNA PRACTICA O EXAMEN-->
+<category>
+<pattern>PUEDO RECUPERAR UNA PRACTICA O EXAMEN</pattern>
+<template>No. </template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ RECUP+ ^ [PRACTICA EXAMEN] ^ </pattern>
+<template><srai>PUEDO RECUPERAR UNA PRACTICA O EXAMEN</srai></template>
+</category>
+
+<!--QUE PASA SI ME COPIO DE OTRO ESTUDIANTE-->
+<category>
+<pattern>QUE PASA SI ME COPIO DE OTRO ESTUDIANTE</pattern>
+<template>Que suspendéis la asignatura, tanto tú como el que se ha dejado copiar. </template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [ME TE] COPI+ ^</pattern>
+<template><srai>QUE PASA SI ME COPIO DE OTRO ESTUDIANTE</srai></template>
+</category>
+
+<!--QUE PASA SI ME DEJO COPIAR DE OTRO ESTUDIANTE-->
+<category>
+<pattern>^ [ME TE] DEJ+ COPI+ ^ </pattern>
+<template>Que suspendéis la asignatura, tú y el otro.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [ME TE] DEJ+ COPI+ ^ </pattern>
+<template><srai>QUE PASA SI ME DEJO COPIAR DE OTRO ESTUDIANTE</srai></template>
+</category>
+
+<!--Y SI SUSPENDO EN LA CONVOCATORIA ORDINARIA-->
+<category>
+<pattern>Y SI SUSPENDO EN LA CONVOCATORIA ORDINARIA</pattern>
+<template>Tienes que presentarte a la convocatoria extraordinaria. </template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ SUSPEN+ ^ CONVOCATORIA ORDINARIA ^</pattern>
+<template><srai>Y SI SUSPENDO EN LA CONVOCATORIA ORDINARIA</srai></template>
+</category>
+
+<!--CUANTO VALE LA PRACTICA Y LA TEORIA-->
+<category>
+<pattern>CUANTO VALE LA PRACTICA Y LA TEORIA</pattern>
+<template>Valen un 50% cada una.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ VALE ^ PRACTIC+ ^ TEOR+ ^</pattern>
+<template><srai>CUANTO VALE LA PRACTICA Y LA TEORIA</srai></template>
+</category>
+
+<!--CUAL ES EL HORARIO DE TUTORIAS DEL PROFESOR DE PRACTICAS-->
+<category>
+<pattern>CUAL ES EL HORARIO DE TUTORIAS DEL PROFESOR DE PRACTICAS</pattern>
+<template>El horario es: Lunes de 15:30 a 17:30 en D17 (ETSIIT)
+								 Lunes de 19:30 a 20:30 en D17 (ETSIIT)
+								 Martes de 18:30 a 19:30 en D17 (ETSIIT)
+								 Viernes de 17:30 a 19:30 en D17 (ETSIIT)</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ HORARIO ^ TUTORI+ ^ PRACTI+ ^</pattern>
+<template><srai>CUAL ES EL HORARIO DE TUTORIAS DEL PROFESOR DE PRACTICAS</srai></template>
+</category>
+
+<!--SE PUEDE APROBAR LA PARTE PRACTICA DE LA ASIGNATURA SI NO
+PRESENTO UNA PRACTICA-->
+<category>
+<pattern>SE PUEDE APROBAR LA PARTE PRACTICA DE LA ASIGNATURA SI NO
+PRESENTO UNA PRACTICA</pattern>
+<template>Si llegas a la nota mínima de prácticas sí.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ APROB+ ^ PRACTIC+ ^ NO [PRESENT+ ENTREG+] ^</pattern>
+<template><srai>SE PUEDE APROBAR LA PARTE PRACTICA DE LA ASIGNATURA SI NO
+PRESENTO UNA PRACTICA</srai></template>
+</category>
+
+<!--CUAL ES LA NOTA MINIMA QUE TENGO QUE OBTENER EN CADA
+PARTE PARA HACER MEDIA-->
+<category>
+<pattern>CUAL ES LA NOTA MINIMA QUE TENGO QUE OBTENER EN CADA
+PARTE PARA HACER MEDIA</pattern>
+<template>Para aprobar la asignatura es necesario tener una calificación numérica superior o igual a 5 (sobre 10). No obstante, además del requisito anterior, se establece como requisito adicional para superar la asignatura que tanto la calificación correspondiente a la parte teórica como la correspondiente a la parte práctica sean mayores o iguales a 3 (sobre 10)</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ MINIM+ ^ PARTE ^ MEDIA^</pattern>
+<template><srai>CUAL ES LA NOTA MINIMA QUE TENGO QUE OBTENER EN CADA
+PARTE PARA HACER MEDIA</srai></template>
+</category>
+
+<!--QUE PUNTUACION OBTENGO EN LA PRACTICA 1 SI OPTO POR
+DEFENDER EL NIVEL 3 Y NO LO SUPERO-->
+<category>
+<pattern>QUE PUNTUACION OBTENGO EN LA PRACTICA 1 SI OPTO POR
+DEFENDER EL NIVEL 3 Y NO LO SUPERO</pattern>
+<template>Un 6.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern> ^ PUNT+ ^ (primera) PRACTICA (1) ^ NIVEL 3 ^</pattern>
+<template><srai>QUE PUNTUACION OBTENGO EN LA PRACTICA 1 SI OPTO POR
+DEFENDER EL NIVEL 3 Y NO LO SUPERO</srai></template>
+</category>
+
+<!--PUEDO ENTREGAR LA PRACTICA 1 SIN HACER LA TAREA RELATIVA
+AL NIVEL 0-->
+<category>
+<pattern>PUEDO ENTREGAR LA PRACTICA 1 SIN HACER LA TAREA RELATIVA
+AL NIVEL 0</pattern>
+<template>No, ya que es el nivel mínimo que hay que completar para entregarla.</template>
+</category>
+
+
+<!--comodin-->
+<category>
+<pattern>^ [ENTREG+ PRESENT+] ^ (PRIMERA) PRACTICA (1) ^ NIVEL 0 ^</pattern>
+<template><srai>PUEDO ENTREGAR LA PRACTICA 1 SIN HACER LA TAREA RELATIVA
+AL NIVEL 0</srai></template>
+</category>
+
+<!--QUE TENGO QUE HACER SI NO PUEDO ASISTIR A LA SESION DE
+PRACTICAS EN LA QUE ME CORRESPONDE HACER LA DEFENSA DE
+MI PRACTICA 1-->
+<category>
+<pattern>^ NO PUEDO ASISTIR A LA SESION DE PRACTICAS ^ DEFENSA DE MI PRACTICA 1</pattern>
+<template>Avisar al profesor de prácticas y el te dará una solución si el motivo esta justificado. </template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ ASIST+ ^ DEFEN+ ^(PRIMERA) PRACTICA (1)^</pattern>
+<template><srai>^ NO PUEDO ASISTIR A LA SESION DE PRACTICAS ^ DEFENSA DE MI PRACTICA 1</srai></template>
+</category>
+
+<!--CUANTAS PRUEBAS TEORICAS TENDRE A LO LARGO DEL CURSO-->
+<category>
+<pattern>CUANTAS PRUEBAS TEORICAS TENDRE A LO LARGO DEL CURSO</pattern>
+<template>Dos pruebas teóricas.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [PRUEBAS EXAMENES] ^ TEOR+ ^</pattern>
+<template><srai>CUANTAS PRUEBAS TEORICAS TENDRE A LO LARGO DEL CURSO</srai></template>
+</category>
+
+<!--QUE VALE LA PRIMERA PRUEBA TEORICA-->
+<category>
+<pattern>^ VALE LA PRIMERA PRUEBA TEORICA</pattern>
+<template>Lo mismo que las segunda, un 25% ( hacen media).</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ VAL+ ^ PRIME+ [EXAMEN PRUEBA] TEORI+ ^</pattern>
+<template><srai>^ VALE LA PRIMERA PRUEBA TEORICA</srai></template>
+</category>
+
+<!--EN QUE CONSISTE EL EXAMEN DE EJERCICIOS-->
+<category>
+<pattern>EN QUE CONSISTE EL EXAMEN DE EJERCICIOS</pattern>
+<template>Un examen de problemas de la asignatura.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [EXAMEN PRUEBA] ^ EJERCICI+ ^</pattern>
+<template><srai>EN QUE CONSISTE EL EXAMEN DE EJERCICIOS</srai></template>
+</category>
+
+<!--QUE DEBERÍA HACER SI NO ESTOY SEGURO DE PODER SUPERAR EL
+NIVEL 3 DE LA PRÁCTICA 1-->
+<category>
+<pattern>^ NO ESTOY SEGURO DE PODER SUPERAR EL
+NIVEL 3 DE LA PRÁCTICA 1</pattern>
+<template>Asegúrate que tienes bien el nivel 0,1 y 2, así aseguras la puntuación mínima.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ [SUPER+ PAS+] ^ (TERCER) NIVEL (3) ^ (PRIMERA) PRACTICA (1)^</pattern>
+<template><srai>^ NO ESTOY SEGURO DE PODER SUPERAR EL
+NIVEL 3 DE LA PRÁCTICA 1</srai></template>
+</category>
+
+<!--YO PROGRAMO MUY BIEN EN C++, PODRIA HACER LA PRACTICA 1
+EN ESE LENGUAJE-->
+<category>
+<pattern>YO PROGRAMO MUY BIEN EN C++, PODRIA HACER LA PRACTICA 1
+EN ESE LENGUAJE</pattern>
+<template>No, los lenguajes de programacióno se especifican en cada guión de prácticas.</template>
+</category>
+
+
+<!--comodin-->
+<category>
+<pattern>^ C++ ^(primera) PRACTICA (1)^</pattern>
+<template><srai>YO PROGRAMO MUY BIEN EN C++, PODRIA HACER LA PRACTICA 1
+EN ESE LENGUAJE</srai></template>
+</category>
+
+<!--ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN
+EXPERTO EN SU CONSTRUCCIÓN PODRIA USAR UN AGENTE
+CONVERSACIONAL PARA QUE VAYAN EN MI LUGAR A HACER LA
+DEFENSA DE PRACTICAS-->
+<category>
+<pattern>ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN
+EXPERTO EN SU CONSTRUCCIÓN PODRIA USAR UN AGENTE
+CONVERSACIONAL PARA QUE VAYAN EN MI LUGAR A HACER LA
+DEFENSA DE PRACTICAS</pattern>
+<template>No, la defensa de prácticas es presencial. Si no te presentas a la defensa, la práctica está suspensa.</template>
+</category>
+
+<!--comodin-->
+<category>
+<pattern>^ AGENT+ CONVESACIONA+ ^ DEFENSA PRACTICAS ^</pattern>
+<template><srai>ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN
+EXPERTO EN SU CONSTRUCCIÓN PODRIA USAR UN AGENTE
+CONVERSACIONAL PARA QUE VAYAN EN MI LUGAR A HACER LA
+DEFENSA DE PRACTICAS</srai></template>
+</category>
+</topic>
+<!--     FIN   NIVEL O              -->
+
+
+<!--        NIVEL 1              -->
+<category>
+<pattern>PIENSA (EN) UNA FRUT+</pattern>
+<template>
+<think>	
+	<set var="list_fruit"><readset>frutas</readset></set>
+	<set var="lista"> <get var="list_fruit"/> </set>
+	<set var="cantidad"><srai>COUNT <get var="lista"/></srai></set>
+	<set var="pos"><srai>RANDOM <get var="cantidad"/></srai></set>
+	<set name="elegida">
+<srai>
+	SELECTITEM <get var="pos"/> IN <get var="lista"/>
+</srai>
+</set>
+</think>
+	Bienvenido al <set name="topic">nivel 1</set>!!,
+	Ya la he pensado, puedes preguntarme.
+</template>
+</category>
+<topic name="nivel 1">
+<category>
+<pattern>ES (DE COLOR) <set>colores</set></pattern>
+<template>
+	<think>
+	<set var="lista_colores"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="lista_colores"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>ES (DE TAMAÑO) <set>tamanio</set></pattern>
+<template>
+	<think>
+	<set var="tamanio"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="tamanio"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>ES (DE SABOR) <set>sabores</set></pattern>
+<template>
+	<think>
+	<set var="sabor"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="sabor"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>TIENE VITAMINA <set>vitaminas</set></pattern>
+<template>
+	<think>
+	<set var="vitamina"><map name="frutas"><get name="elegida"/></map></set>
+	<set var="in"><srai> FINDITEM <star/> IN <get var="vitamina"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+
+
+<category>
+<pattern>(LA FRUTA EN LA QUE ESTABAS PENSANDO) ES [EL LA] <set>frutas</set></pattern>
+<template>
+	<think>
+	<set var="acierto"><srai> FINDITEM <star/> IN <get name="elegida"/></srai></set>
+	</think>
+	<condition var="acierto">
+	<li value="0">
+		No, has perdido!! Todavia puedes seguir intentandolo.
+		Para reiniciar el juego dime "Piensa en otra fruta".
+	</li>
+	<li>
+		Si, has ganado!!.
+		
+			<srai>PIENSA EN OTRA FRUT+</srai>
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * es (de color) <set>colores</set></pattern>
+<template>
+	<think>
+	<set var="color"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="color"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * es (de tamanio) <set>tamanio</set></pattern>
+<template>
+	<think>
+	<set var="tamanio"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="tamanio"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * es (de sabor) <set>sabores</set></pattern>
+<template>
+	<think>
+	<set var="sabor"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="sabor"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>[EL LA] * tiene vitamina <set>vitaminas</set></pattern>
+<template>
+	<think>
+	<set var="vitamina"><map name="frutas"><star/></map></set>
+	<set var="in"><srai> FINDITEM <star index="2"/> IN <get var="vitamina"/></srai></set>
+	</think>
+	<condition var="in">
+	<li value="0">
+		No.
+	</li>
+	<li>
+		Si.
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>PIENSA EN OTRA FRUT+</pattern>
+<template>Quieres reiniciar el juego</template>
+</category>
+
+
+<category>
+<pattern>Si</pattern>
+<that>Quieres reiniciar el juego</that>
+<template>
+	Reiniciando juego... Pensando otra fruta.
+	<srai>PIENSA EN UNA FRUT+</srai>
+</template>
+</category>
+
+<category>
+<pattern>No</pattern>
+<that>Quieres reiniciar el juego</that>
+<template>
+	Vale, podemos seguir charlando.
+</template>
+</category>
+</topic>
+<!--     FIN   NIVEL 1              -->
+</aiml>
